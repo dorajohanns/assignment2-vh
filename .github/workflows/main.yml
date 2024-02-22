@@ -5,14 +5,32 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Checkout Repo
         uses: actions/checkout@v4.1.1
+
       - name: Setup node
         uses: actions/setup-node@v4.0.2
         with:
           node-version: 20
+
       - name: Npm install
         run: npm ci
+
+      - name: Run Typecheck
+        run: npx tsc --noEmit
+
       - name: Run tests
         run: npm run test
+
+      - name: Store Coverage Report
+        run: |
+          mkdir -p coverage
+          mv ./coverage ./coverage-report
+        continue-on-error: true
+
+      - name: Archive Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: ./coverage-report
