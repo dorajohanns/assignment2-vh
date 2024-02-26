@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: ESLint checker
-        run: npx eslint dateUtils.ts
+        run: npx eslint src/dateUtils.ts
 
       - name: Run Typecheck
         run: npx tsc --noEmit
