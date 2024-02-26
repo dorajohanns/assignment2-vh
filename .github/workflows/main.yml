@@ -26,6 +26,9 @@ jobs:
       - name: Run tests
         run: npm run test
 
+      - name: Debug - Print NODE_AUTH_TOKEN
+        run: echo ${{ secrets.NODE_AUTH_TOKEN }}
+
       - name: Publish package
         run: npm publish
         env:
