@@ -21,6 +21,9 @@ jobs:
       - name: Npm install
         run: npm ci
 
+      - name: ESLint
+        uses: github/eslint-action@v2
+
       - name: Run Typecheck
         run: npx tsc --noEmit
 
@@ -30,12 +33,6 @@ jobs:
           mkdir -p coverage
           mv ./coverage ./coverage-report
           echo "coverage-report" >> .gitignore
-
-  eslint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: stefanoeb/eslint-action@1.0.2
 
   publish-gpr:
     needs: test
