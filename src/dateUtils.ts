@@ -19,7 +19,7 @@ export function getCurrentYear() {
 export function add(
   date: Date,
   number: number,
-  type = DATE_UNIT_TYPES.DAYS
+  type = DATE_UNIT_TYPES.DAYS,
 ): Date {
   if (type == DATE_UNIT_TYPES.SECONDS) {
     return addSeconds(date, number);

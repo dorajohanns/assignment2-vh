@@ -14,7 +14,7 @@ describe("Test eslint", () => {
         `);
     expect(error.errorCount).toBe(1);
     expect(error.messages[0].ruleId).toBe(
-      "@typescript-eslint/naming-convention"
+      "@typescript-eslint/naming-convention",
     );
   });
   test("Function names should be in camelCase - Success", async () => {
