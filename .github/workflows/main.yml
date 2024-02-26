@@ -25,7 +25,11 @@ jobs:
         run: npx tsc --noEmit
 
       - name: Run tests
-        run: npm run test
+        run: |
+          npm run test
+          mkdir -p coverage
+          mv ./coverage ./coverage-report
+          echo "coverage-report" >> .gitignore
 
   publish-gpr:
     needs: test
