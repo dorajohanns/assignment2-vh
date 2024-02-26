@@ -21,11 +21,8 @@ jobs:
       - name: Npm install
         run: npm ci
 
-      - name: ESLint
-        uses: actions/checkout@v2
-        with:
-          repository: github/eslint-action
-          ref: v2
+      - name: Run ESLint
+        run: npm run lint
 
       - name: Run Typecheck
         run: npx tsc --noEmit
