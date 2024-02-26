@@ -31,6 +31,12 @@ jobs:
           mv ./coverage ./coverage-report
           echo "coverage-report" >> .gitignore
 
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: stefanoeb/eslint-action@1.0.2
+
   publish-gpr:
     needs: test
     runs-on: ubuntu-latest
