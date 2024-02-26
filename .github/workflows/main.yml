@@ -22,7 +22,10 @@ jobs:
         run: npm ci
 
       - name: ESLint
-        uses: github/eslint-action@v2
+        uses: actions/checkout@v2
+        with:
+          repository: github/eslint-action
+          ref: v2
 
       - name: Run Typecheck
         run: npx tsc --noEmit
